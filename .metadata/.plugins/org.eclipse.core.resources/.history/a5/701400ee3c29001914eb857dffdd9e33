@@ -1,0 +1,43 @@
+package com.cg.bookmymovie.theatreService.service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.cg.bookmymovie.theatreService.entity.Theatre;
+import com.cg.bookmymovie.theatreService.repository.TheatreRepository;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class TheatreServiceImplIntegrationTest {
+
+	@Autowired
+	private TheatreService theatreService;
+
+	@Autowired
+	private TestRestTemplate testRestTemplate;
+
+	@Test
+	public void addNewTheatreTest() {
+	
+		ResponseEntity<Resource> responseEntity = testRestTemplate.getForEntity("/theatres",
+				Resource.class);
+
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+	}
+
+  	
+  	
+}

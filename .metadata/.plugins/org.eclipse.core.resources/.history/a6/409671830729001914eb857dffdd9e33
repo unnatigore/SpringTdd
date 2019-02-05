@@ -1,0 +1,5 @@
+package com.cg.bookmymovie.theatreService.resource;
+
+public class TheatreResource {
+
+}

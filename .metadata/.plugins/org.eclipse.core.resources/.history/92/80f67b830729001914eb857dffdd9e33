@@ -1,0 +1,5 @@
+package com.cg.bookmymovie.theatreService.service;
+
+public class TheatreServiceImplIntegrationTest {
+
+}

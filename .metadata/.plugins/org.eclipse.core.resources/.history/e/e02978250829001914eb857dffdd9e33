@@ -1,0 +1,47 @@
+package com.cg.bookmymovie.theatreService.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cg.bookmymovie.theatreService.entity.Theatre;
+import com.cg.bookmymovie.theatreService.repository.TheatreRepository;
+
+@Service
+public class TheatreServiceImpl implements TheatreService {
+	@Autowired
+	private TheatreRepository theatreRepository;
+
+	@Override
+	public void addNewTheatre(Theatre theatre) {
+		theatreRepository.save(theatre);
+	}
+
+	@Override
+	public List<Theatre> getAllTheatres() {
+		return theatreRepository.findAll();
+	}
+
+	@Override
+	public void updateTheatre(Theatre theatre) {
+		theatreRepository.save(theatre);
+
+	}
+
+	@Override
+	public void deleteEmployee(int theatreId) {
+		Theatre theatre = theatreRepository.getOne(theatreId);
+		theatreRepository.delete(theatre);
+
+	}
+
+	@Override
+	public Object getTheatreById(int theatreId) {
+		Optional<Theatre> employee = theatreRepository.findById(theatreId);
+		return employee;
+
+	}
+
+}
