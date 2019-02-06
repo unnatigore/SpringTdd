@@ -18,6 +18,14 @@ public class Theatre {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Theatre(int theatreId, String theatreName, Address theatreAddress, Set<Auditorium> auditorium) {
+		super();
+		this.theatreId = theatreId;
+		this.theatreName = theatreName;
+		this.theatreAddress = theatreAddress;
+		this.auditorium = auditorium;
+	}
+
 	public int getTheatreId() {
 		return theatreId;
 	}
@@ -56,9 +64,9 @@ public class Theatre {
 				+ ", auditorium=" + auditorium + "]";
 	}
 
-	public void setTheatreAddress(String string, String string2, String string3, String string4) {
+	public boolean isPresent() {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 }

@@ -4,7 +4,13 @@ public class Address {
 	private String street;
 	private String state;
 	private String city;
-	private int pincode;
+
+	public Address(String street, String state, String city) {
+		super();
+		this.street = street;
+		this.state = state;
+		this.city = city;
+	}
 
 	public Address() {
 		super();
@@ -35,17 +41,9 @@ public class Address {
 		this.city = city;
 	}
 
-	public int getPincode() {
-		return pincode;
-	}
-
-	public void setPincode(int pincode) {
-		this.pincode = pincode;
-	}
-
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", state=" + state + ", city=" + city + ", pincode=" + pincode + "]";
+		return "Address [street=" + street + ", state=" + state + ", city=" + city + "]";
 	}
 
 }

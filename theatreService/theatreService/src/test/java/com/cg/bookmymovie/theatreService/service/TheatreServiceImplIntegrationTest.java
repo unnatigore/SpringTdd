@@ -1,40 +1,41 @@
+
 package com.cg.bookmymovie.theatreService.service;
 
-import static org.junit.Assert.assertEquals;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.cg.bookmymovie.theatreService.entity.Address;
+import com.cg.bookmymovie.theatreService.entity.Auditorium;
+import com.cg.bookmymovie.theatreService.entity.Seat;
 import com.cg.bookmymovie.theatreService.entity.Theatre;
 
 @RunWith(SpringRunner.class)
+
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class TheatreServiceImplIntegrationTest {
-
+	
+	Theatre theatre1;
+	
 	@Autowired
 	private TheatreService theatreService;
 
-	@LocalServerPort
-	int randomServerPort;
+	@Test
+	public void addTheatreFailedTest() throws Exception {
 
-	@Autowired
-	private TestRestTemplate testRestTemplate;
+		Set<Seat> seatSet = new HashSet<Seat>();
+		Set<Auditorium> auditoriumSet = new HashSet<Auditorium>();
 
-	
+		seatSet.add(new Seat("Balcony", "M", 12));
+		auditoriumSet.add(new Auditorium("Kibe", seatSet));
+		Address address = new Address("Prabhat Road", "Maharashtra", "Pune");
+		theatre1 = new Theatre(1, "E-SQUARE", address, auditoriumSet);
 
+	}
 }

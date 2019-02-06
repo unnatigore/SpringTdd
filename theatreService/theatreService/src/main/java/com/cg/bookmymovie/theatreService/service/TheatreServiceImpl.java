@@ -16,6 +16,12 @@ public class TheatreServiceImpl implements TheatreService {
 	private TheatreRepository theatreRepository;
 
 	@Override
+	public Optional<Theatre> getTheatreById(Integer theatreId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public void addNewTheatre(Theatre theatre) {
 		theatreRepository.save(theatre);
 	}
@@ -37,12 +43,16 @@ public class TheatreServiceImpl implements TheatreService {
 		theatreRepository.deleteById(theatreId);
 
 	}
+	/*
+	 * @Override public Object getTheatreById(int theatreId) { Optional<Theatre>
+	 * theatre = theatreRepository.findById(theatreId); return theatre;
+	 * 
+	 * }
+	 */
 
 	@Override
-	public Object getTheatreById(int theatreId) {
-		Optional<Theatre> theatre = theatreRepository.findById(theatreId);
-		return theatre;
-
+	public void deleteTheatre(Theatre theatre) {
+		// TODO Auto-generated method stub
+		
 	}
-
 }

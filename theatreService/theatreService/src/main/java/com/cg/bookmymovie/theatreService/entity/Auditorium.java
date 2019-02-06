@@ -11,6 +11,12 @@ public class Auditorium {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Auditorium(String auditoriumName, Set<Seat> seat) {
+		super();
+		this.auditoriumName = auditoriumName;
+		this.seat = seat;
+	}
+
 	public String getAuditoriumName() {
 		return auditoriumName;
 	}
